@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashback</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app">
+        <header class="header">
+            <div class="logo">⚡ FLASHBACK</div>
+        </header>
+
+        <main class="main-content">
+            <div class="photo-container">
+                <img src="" alt="Memory" class="photo" id="currentPhoto">
+                
+                <div class="hint next-hint">↗️</div>
+                <div class="hint prev-hint">↙️</div>
+                <div class="hint details-hint">⬆️</div>
+
+                <div class="reactions-panel" id="reactionsPanel">
+                    <button class="reaction-btn" onclick="addReaction('❤️')">❤️</button>
+                    <button class="reaction-btn" onclick="addReaction('⭐')">⭐</button>
+                    <button class="reaction-btn" onclick="addReaction('😊')">😊</button>
+                    <button class="reaction-btn" onclick="addReaction('😢')">😢</button>
+                    <button class="reaction-btn" onclick="addReaction('🔥')">🔥</button>
+                </div>
+            </div>
+
+            <div class="status-bar" id="statusBar">Загрузка...</div>
+
+            <div class="action-buttons">
+                <button class="action-btn" onclick="prevPhoto()">↙️ Назад</button>
+                <button class="action-btn" onclick="toggleReactions()">😊 Реакции</button>
+                <button class="action-btn" onclick="nextPhoto()">↗️ Вперед</button>
+            </div>
+        </main>
+
+        <nav class="bottom-nav">
+            <button class="nav-btn active" onclick="showScreen('home')">
+                <span class="nav-icon">🏠</span>
+                <span class="nav-label">Главная</span>
+            </button>
+            <button class="nav-btn" onclick="showScreen('search')">
+                <span class="nav-icon">🔍</span>
+                <span class="nav-label">Поиск</span>
+            </button>
+            <button class="nav-btn" onclick="showScreen('favorites')">
+                <span class="nav-icon">❤️</span>
+                <span class="nav-label">Избранное</span>
+            </button>
+            <button class="nav-btn" onclick="showScreen('timeline')">
+                <span class="nav-icon">📅</span>
+                <span class="nav-label">Время</span>
+            </button>
+            <button class="nav-btn" onclick="showScreen('settings')">
+                <span class="nav-icon">⚙️</span>
+                <span class="nav-label">Еще</span>
+            </button>
+        </nav>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
