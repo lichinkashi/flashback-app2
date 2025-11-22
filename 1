@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashback</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial; background: #000; color: #fff; height: 100vh; }
+        .app { height: 100vh; display: flex; flex-direction: column; }
+        .header { background: #8B0000; padding: 20px; text-align: center; }
+        .logo { font-size: 24px; font-weight: bold; }
+        .main { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; }
+        .photo { width: 100%; max-width: 300px; height: 400px; background: #8B0000; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 20px; }
+        .buttons { display: flex; gap: 15px; margin-bottom: 20px; }
+        .btn { background: #8B0000; color: white; border: none; padding: 12px 20px; border-radius: 25px; cursor: pointer; font-size: 16px; }
+        .status { color: #8B0000; font-size: 16px; margin-bottom: 20px; }
+        .nav { display: flex; justify-content: space-around; padding: 15px; background: #111; border-top: 1px solid #333; }
+        .nav-btn { background: none; border: none; color: #666; cursor: pointer; padding: 10px; display: flex; flex-direction: column; align-items: center; }
+        .nav-btn.active { color: #8B0000; }
+    </style>
+</head>
+<body>
+    <div class="app">
+        <div class="header">
+            <div class="logo">⚡ FLASHBACK</div>
+        </div>
+        
+        <div class="main">
+            <div class="photo" id="photo">📸 ФОТО</div>
+            <div class="status" id="status">Готов к работе!</div>
+            <div class="buttons">
+                <button class="btn" onclick="prevPhoto()">↙️ Назад</button>
+                <button class="btn" onclick="nextPhoto()">↗️ Вперед</button>
+            </div>
+            <button class="btn" onclick="showReactions()">😊 Реакции</button>
+        </div>
+        
+        <div class="nav">
+            <button class="nav-btn active">🏠</button>
+            <button class="nav-btn">🔍</button>
+            <button class="nav-btn">❤️</button>
+            <button class="nav-btn">📅</button>
+            <button class="nav-btn">⚙️</button>
+        </div>
+    </div>
+
+    <script>
+        let currentPhoto = 1;
+        
+        function showStatus(message) {
+            document.getElementById('status').textContent = message;
+        }
+        
+        function nextPhoto() {
+            currentPhoto++;
+            document.getElementById('photo').textContent = `📸 ФОТО ${currentPhoto}`;
+            showStatus('Следующее фото ➡️');
+        }
+        
+        function prevPhoto() {
+            if (currentPhoto > 1) {
+                currentPhoto--;
+                document.getElementById('photo').textContent = `📸 ФОТО ${currentPhoto}`;
+                showStatus('Предыдущее фото ⬅️');
+            }
+        }
+        
+        function showReactions() {
+            showStatus('Реакции: ❤️ ⭐ 😊 😢 🔥');
+        }
+        
+        showStatus('Flashback загружен! 🎉');
+    </script>
+</body>
+</html>
